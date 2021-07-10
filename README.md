@@ -6,3 +6,10 @@ El proyecto se basa en el diseño, desarrollo e implementación de un circuito i
 ## Código implementado
 
 En este repositorio se puede encontrar la totalidad del código desarrollado. En la carpeta **Componentes_Ruta_Datos** se encuentra todos los componentes que conforman la ruta de datoa y en la carpeta **Simulaciones** se encuentran todas las pruebas de caja negra y caja blanca realizados a dichos componentes. Podemos encontrar desde componentes básicos como biestables o sumadores de un bit a el bloque final del proyecto.
+
+## Software utilizado
+
+Para llevar a cabo la realización dle proyecto se ha usado:
+
+* VIVADO
+* ADEPT
