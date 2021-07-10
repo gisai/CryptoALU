@@ -11,5 +11,5 @@ En este repositorio se puede encontrar la totalidad del código desarrollado. En
 
 Para llevar a cabo la realización dle proyecto se ha usado:
 
-* [Vivado] (https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwi50ajAg9nxAhWW3YUKHQ_DA3gQFnoECAUQAw&url=https%3A%2F%2Fwww.xilinx.com%2Fproducts%2Fdesign-tools%2Fvivado.html&usg=AOvVaw3CcDlFZ09ShLIwRCmt_Sm3)
-* ADEPT
+* [Vivado](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwi50ajAg9nxAhWW3YUKHQ_DA3gQFnoECAUQAw&url=https%3A%2F%2Fwww.xilinx.com%2Fproducts%2Fdesign-tools%2Fvivado.html&usg=AOvVaw3CcDlFZ09ShLIwRCmt_Sm3) : para realizar la implementación de la ruta de datos y la síntesis en la placa FPGA.
+* [ADEPT](https://store.digilentinc.com/digilent-adept/) : para realizar la carga de los archivos bitstream en la placa FPGA basys3
