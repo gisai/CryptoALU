@@ -99,24 +99,24 @@ COMPONENT Memoria_RAM
         DATA_OUT: INOUT STD_LOGIC_VECTOR (31 DOWNTO 0)  );
 END COMPONENT;
 
---Señales correspondientes al extensor de signo.
+--SeÃ±ales correspondientes al extensor de signo.
 SIGNAL result_extSigno: STD_LOGIC_VECTOR(31 DOWNTO 0);
 
---Señales correspondientes al multiplexor de 32 bits_0
+--SeÃ±ales correspondientes al multiplexor de 32 bits_0
 SIGNAL result_mux32_0: STD_LOGIC_VECTOR(31 DOWNTO 0);
 SIGNAL result_mux32_1: STD_LOGIC_VECTOR(31 DOWNTO 0);
 
---Señales correspondientes al multiplexor de 5 bits
+--SeÃ±ales correspondientes al multiplexor de 5 bits
 SIGNAL result_mux5bits: STD_LOGIC_VECTOR(4 DOWNTO 0);
 
---Señales correspondientes a la ALU
+--SeÃ±ales correspondientes a la ALU
 SIGNAL result_ALU: STD_LOGIC_VECTOR(31 DOWNTO 0);
 
---Señales correspondientes al banco de registros
+--SeÃ±ales correspondientes al banco de registros
 SIGNAL result_busA: STD_LOGIC_VECTOR(31 DOWNTO 0);
 SIGNAL result_busB: STD_LOGIC_VECTOR(31 DOWNTO 0);
 
---Señales correspondientes a la meoria de datos
+--SeÃ±ales correspondientes a la meoria de datos
 SIGNAL result_mem_datos: STD_LOGIC_VECTOR(31 DOWNTO 0);
 
 begin
