@@ -5,4 +5,4 @@ El proyecto se basa en el diseño, desarrollo e implementación de un circuito i
 
 ## Código implementado
 
-En este repositorio se puede encontrar la totalidad del código desarrollado. En la carpeta **Código_
+En este repositorio se puede encontrar la totalidad del código desarrollado. En la carpeta **Componentes_Ruta_Datos**
