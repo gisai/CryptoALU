@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 21.05.2021 19:40:23
+-- Create Date: 20.05.2021 19:23:00
 -- Design Name: 
--- Module Name: ensambaje_tipo_lw - Behavioral
+-- Module Name: ensamblaje_tipo_sw - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,12 +31,14 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity ensambaje_tipo_lw is
-    Port ( CLK : in STD_LOGIC;
+entity ensamblaje_tipo_sw is
+    Port ( CLK: IN STD_LOGIC;
          reset: IN STD_LOGIC;
          rs: IN STD_LOGIC_VECTOR(4 DOWNTO 0);
          rt: IN STD_LOGIC_VECTOR(4 DOWNTO 0);
          rd: IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+         cw: IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+         sel: IN STD_LOGIC;
          reg_dst: IN STD_LOGIC;
          reg_write: IN STD_LOGIC;
          alu_src: IN STD_LOGIC;
@@ -45,11 +47,10 @@ entity ensambaje_tipo_lw is
          mem_write: IN STD_LOGIC;
          mem_read: IN STD_LOGIC;
          mem_to_reg: IN STD_LOGIC;
-         salida: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
          zero: OUT STD_LOGIC);
-end ensambaje_tipo_lw;
+end ensamblaje_tipo_sw;
 
-architecture Behavioral of ensambaje_tipo_lw is
+architecture Behavioral of ensamblaje_tipo_sw is
 
 COMPONENT Mux_2a1_5_bits
     Port ( E1 : in STD_LOGIC_VECTOR (4 downto 0);
@@ -119,6 +120,9 @@ SIGNAL result_busB: STD_LOGIC_VECTOR(31 DOWNTO 0);
 --Señales correspondientes a la meoria de datos
 SIGNAL result_mem_datos: STD_LOGIC_VECTOR(31 DOWNTO 0);
 
+SIGNAL salida_mux: STD_LOGIC_VECTOR (31 DOWNTO 0);
+SIGNAL salida_aux: STD_LOGIC_VECTOR (31 downto 0);
+
 begin
 
 --Instanciacion del extensor de Signo
@@ -133,14 +137,16 @@ mux32_2: Mux2a1_32 PORT MAP(result_mem_datos, result_ALU, result_mux32_1, mem_to
 ALU: A_L_U PORT MAP(result_busA, result_mux32_0, alu_ctrl , result_ALU, zero);
 
 --Instanciacion de la memoria de datos
-RAM: Memoria_RAM PORT MAP(CLK, mem_write, mem_read, result_ALU, result_ALU, result_mem_datos);
+RAM: Memoria_RAM PORT MAP(CLK, mem_write, mem_read, result_ALU, result_busB, result_mem_datos);
 
 --Instanciacion del multiplexzor 2 a1 5 bits
 mux5: Mux_2a1_5_bits PORT MAP(rt, rd, result_mux5bits, reg_dst);
 
 --Instanciacion del banco de registros
-banco: Banco_De_Registros PORT MAP(CLK, rs, rt, result_mux5bits,result_mux32_1 , reg_write, reset, result_busA, result_busB);
+multiplexsor: Mux2a1_32 PORT MAP(cw, result_mux32_1, salida_mux, sel);
+banco: Banco_De_Registros PORT MAP(CLK, rs, rt, result_mux5bits,salida_mux , reg_write, reset, result_busA, result_busB);
+--salida_aux<=salida;
 
-salida<=result_busB;
+
 
 end Behavioral;
